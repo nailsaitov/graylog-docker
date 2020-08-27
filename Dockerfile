@@ -45,7 +45,7 @@ RUN \
 RUN \
   install \
     --directory \
-    --mode=0750 \
+    --mode=777 \
     /opt/graylog/data \
     /opt/graylog/data/journal \
     /opt/graylog/data/log \
