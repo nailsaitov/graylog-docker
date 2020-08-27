@@ -42,7 +42,7 @@ RUN \
 RUN \
   install \
     --directory \
-    --mode=777 \
+    --mode=0750 \
     /opt/graylog/data \
     /opt/graylog/data/journal \
     /opt/graylog/data/log \
@@ -64,7 +64,7 @@ ARG GRAYLOG_PLUGIN=/usr/share/graylog/plugin
 ARG GRAYLOG_USER=graylog
 ARG GRAYLOG_UID=1100
 ARG GRAYLOG_GROUP=graylog
-ARG GRAYLOG_GID=1100
+ARG GRAYLOG_GID=1000
 
 COPY --from=graylog-downloader /opt/graylog ${GRAYLOG_HOME}
 COPY config ${GRAYLOG_HOME}/data/config
@@ -107,7 +107,6 @@ RUN \
     --quiet \
     "${GRAYLOG_USER}" && \
   chown --recursive "${GRAYLOG_USER}":"${GRAYLOG_GROUP}" ${GRAYLOG_HOME} && \
-  chown --recursive "${GRAYLOG_USER}":"${GRAYLOG_GROUP}" ${GRAYLOG_PLUGIN} && \
   setcap 'cap_net_bind_service=+ep' "${JAVA_HOME}/bin/java" && \
   apt-get remove --assume-yes --purge \
     apt-utils > /dev/null && \
