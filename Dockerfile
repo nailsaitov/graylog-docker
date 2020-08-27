@@ -49,6 +49,12 @@ RUN \
     /opt/graylog/data/config \
     /opt/graylog/data/plugin \
     /opt/graylog/data/data
+    
+ RUN \
+  install \
+    --directory \
+    --mode=777 \
+    /usr/share/graylog/plugin
 
 # -------------------------------------------------------------------------------------------------
 #
