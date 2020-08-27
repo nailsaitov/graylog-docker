@@ -8,7 +8,7 @@ ARG GRAYLOG_VERSION
 
 WORKDIR /tmp
 
-RUN apt-get install -y wget
+RUN apt-get install wget
 
 # hadolint ignore=DL3008,DL3015
 RUN \
