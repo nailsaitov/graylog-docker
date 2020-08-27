@@ -60,6 +60,7 @@ ARG VCS_REF
 ARG GRAYLOG_VERSION
 ARG BUILD_DATE
 ARG GRAYLOG_HOME=/usr/share/graylog
+ARG GRAYLOG_PLUGIN=/usr/share/graylog/plugin
 ARG GRAYLOG_USER=graylog
 ARG GRAYLOG_UID=1100
 ARG GRAYLOG_GROUP=graylog
@@ -84,6 +85,7 @@ RUN \
   echo "export PATH=${GRAYLOG_HOME}/bin:${PATH}"   >> /etc/profile.d/graylog.sh && \
   apt-get update  > /dev/null && \
   apt-get install --no-install-recommends --assume-yes \
+    wget \
     curl \
     tini \
     libcap2-bin \
@@ -105,6 +107,7 @@ RUN \
     --quiet \
     "${GRAYLOG_USER}" && \
   chown --recursive "${GRAYLOG_USER}":"${GRAYLOG_GROUP}" ${GRAYLOG_HOME} && \
+  chown --recursive "${GRAYLOG_USER}":"${GRAYLOG_GROUP}" ${GRAYLOG_PLUGIN} && \
   setcap 'cap_net_bind_service=+ep' "${JAVA_HOME}/bin/java" && \
   apt-get remove --assume-yes --purge \
     apt-utils > /dev/null && \
