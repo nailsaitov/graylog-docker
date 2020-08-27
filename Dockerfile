@@ -16,6 +16,8 @@ RUN \
   apt-get install --assume-yes \
     ca-certificates \
     curl > /dev/null
+    
+RUN apt-get install wget
 
 RUN \
   curl \
