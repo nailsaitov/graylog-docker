@@ -8,7 +8,6 @@ ARG GRAYLOG_VERSION
 
 WORKDIR /tmp
 
-
 # hadolint ignore=DL3008,DL3015
 RUN \
   apt-get update  > /dev/null && \
@@ -16,7 +15,6 @@ RUN \
     ca-certificates \
     curl > /dev/null
     
-RUN apt-get install wget
 
 RUN \
   curl \
