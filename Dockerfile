@@ -127,6 +127,7 @@ RUN \
     /usr/share/X11 \
     /usr/share/doc/* 2> /dev/null
 
+RUN wget -O /usr/share/graylog/plugin/graylog-input-beats-1.0.0.jar https://github.com/sivasamyk/graylog-beats-plugin/releases/download/v1.0.0/graylog-input-beats-1.0.0.jar
 
 COPY docker-entrypoint.sh /
 COPY health_check.sh /
