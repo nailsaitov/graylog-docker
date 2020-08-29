@@ -128,6 +128,7 @@ RUN \
     /usr/share/doc/* 2> /dev/null
 
 RUN wget -O /usr/share/graylog/plugin/graylog-input-beats-1.0.0.jar https://github.com/sivasamyk/graylog-beats-plugin/releases/download/v1.0.0/graylog-input-beats-1.0.0.jar
+RUN wget -O /usr/share/graylog/plugin/graylog-plugin-telegram-notification-2.3.1.jar https://github.com/irgendwr/TelegramAlert/releases/download/v2.3.1/graylog-plugin-telegram-notification-2.3.1.jar
 
 COPY docker-entrypoint.sh /
 COPY health_check.sh /
